@@ -2,13 +2,15 @@
   "name": "express_post_app",
   "version": "1.0.0",
   "description": "Simple knowledgebase app",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app"
   },
   "author": "ks",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12",
+    "pug": "^3.0.2"
   }
 }
