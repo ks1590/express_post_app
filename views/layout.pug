@@ -2,9 +2,23 @@ doctype html
 html
   head
     title Knowledgebase
+    link(rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css")
   body
-    block content
-    br
-    hr
-    footer
-      p Express Post App
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      .container-fluid
+        a.navbar-brand(href='/') Post App
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarNavAltMarkup.collapse.navbar-collapse
+          .navbar-nav
+            a.nav-link.active(aria-current='page' href='/articles/add') New Post            
+            a.nav-link(href='#') Pricing
+            a.nav-link.disabled(href='#' tabindex='-1' aria-disabled='true') Disabled
+    .container
+      block content
+      br
+      hr
+      footer
+        p Express Post App
+    script(src="/bower_components/jquery/dist/jquery.js")
+    script(src="/bower_components/bootstrap/dist/js/bootstrap.js")
