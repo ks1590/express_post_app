@@ -41,6 +41,14 @@ app.get("/", (req, res) => {
   })
 })
 
+app.get("/articles/:id", (req, res) => {
+  Article.findById(req.params.id, (err, article) => {
+    res.render("article", {
+      article: article
+    })
+  })
+})
+
 app.get("/articles/add", (req, res) => {
   res.render("add_article", {
     title: "Add Article"
