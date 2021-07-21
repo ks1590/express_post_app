@@ -41,7 +41,7 @@ app.get("/", (req, res) => {
   })
 })
 
-app.get("/articles/:id", (req, res) => {
+app.get("/article/:id", (req, res) => {
   Article.findById(req.params.id, (err, article) => {
     res.render("article", {
       article: article
@@ -72,6 +72,35 @@ app.post("/articles/add", (req, res) => {
   })
 })
 
+app.get("/article/edit/:id", (req, res) => {
+  Article.findById(req.params.id, (err, article) => {
+    res.render("edit_article", {
+      title: "Edit title",
+      article: article
+    })
+  })
+})
+
+// Update submit POST route
+app.post("/article/edit/:id", (req, res) => {
+  let article = {}
+  article.title = req.body.title
+  article.author = req.body.author
+  article.body = req.body.body
+
+  console.log(article)
+
+  let query = { _id: req.params.id }
+
+  Article.update(query, article, (err) => {
+    if (err) {
+      console.log(err)
+      return
+    } else {
+      res.redirect("/")
+    }
+  })
+})
 
 app.listen(3000, () => {
   console.log("Server started on port 3000...")
