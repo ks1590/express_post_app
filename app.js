@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
       console.log(err)
     } else {
       res.render("index", {
-        title: "Articles",
+        title: "ブログ一覧",
         articles: articles
       })
     }
@@ -51,7 +51,7 @@ app.get("/article/:id", (req, res) => {
 
 app.get("/articles/add", (req, res) => {
   res.render("add_article", {
-    title: "Add Article"
+    title: "新規作成"
   })
 })
 
@@ -108,8 +108,10 @@ app.delete("/article/:id", function (req, res) {
   Article.remove(query, function (err) {
     if (err) {
       console.log(err)
+      return
+    } else {
+      res.send("Success")
     }
-    res.send("Success")
   })
 })
 

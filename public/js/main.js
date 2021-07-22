@@ -6,8 +6,10 @@ $(document).ready(function () {
     $.ajax({
       type: "DELETE",
       success: function (response) {
-        alert("Deleting Article")
-        window.location.href = "/"
+
+        if (confirm("削除してよろしいですか？") === true) {
+          window.location.href = "/"
+        }
       },
       error: function (err) {
         console.log(err)
